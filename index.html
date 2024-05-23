@@ -48,7 +48,7 @@
                             const repo = await axios(`${gitApi}/repos/${text}/Asta`);
                         } catch (e) {
                             alert("Fork The Repository First.\nClick The 'OK' Button To Fork")
-                            return location.replace(`https://github.com/${owner}/Izumi-v2/fork`)
+                            return location.replace(`https://github.com/sataniceypz/Izumi-v2/fork`)
                         }
                     }      
                     if(urls && ( urls.startsWith("https") || urls.startsWith("Http") ) ) window.location.replace(`${urls}`)       
