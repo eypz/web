@@ -42,13 +42,13 @@
                 try {
                     const { data } = await axios(`${gitApi}/users/${text}`)
                     try {
-                        const repo = await axios(`${gitApi}/repos/${text}/Asta-Md`);
+                        const repo = await axios(`${gitApi}/repos/${text}/Izumi-v2`);
                     } catch (e) {
                         try {
-                            const repo = await axios(`${gitApi}/repos/${text}/Asta`);
+                            const repo = await axios(`${gitApi}/repos/${text}/Izumi-v2`);
                         } catch (e) {
                             alert("Fork The Repository First.\nClick The 'OK' Button To Fork")
-                            return location.replace(`https://github.com/sataniceypz/Izumi-v2/fork`)
+                            return location.replace(`https://github.com/${owner}/Izumi-v2/fork`)
                         }
                     }      
                     if(urls && ( urls.startsWith("https") || urls.startsWith("Http") ) ) window.location.replace(`${urls}`)       
