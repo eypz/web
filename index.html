@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Futuristic Website</title>
+    <title>Izumi-v3 - Multi-device WhatsApp Bot</title>
     <style>
         /* CSS Reset */
         * {
@@ -14,15 +14,16 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background: #1a1a1a;
+            background: #000;
             color: #d3d3d3;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            background: linear-gradient(90deg, #00bfff, #0000ff);
             color: white;
-            padding: 2rem 0;
+            padding: 3rem 0;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
@@ -30,21 +31,25 @@
         nav {
             display: flex;
             justify-content: center;
-            background-color: #212121;
-            padding: 0.5rem 0;
+            background-color: #111;
+            padding: 1rem 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
-            color: #00c6ff;
+            color: #00bfff;
             padding: 1rem 1.5rem;
             text-decoration: none;
             text-transform: uppercase;
             transition: color 0.3s ease, background-color 0.3s ease;
+            font-weight: bold;
         }
 
         nav a:hover {
-            background-color: #0072ff;
+            background-color: #0000ff;
             color: white;
         }
 
@@ -52,14 +57,15 @@
             max-width: 1200px;
             margin: 2rem auto;
             padding: 2rem;
-            background: #2a2a2a;
+            background: #111;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
             border-radius: 8px;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .container h2 {
             margin-bottom: 1rem;
-            color: #00c6ff;
+            color: #00bfff;
         }
 
         .container p {
@@ -68,31 +74,61 @@
         }
 
         .button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             padding: 0.75rem 1.5rem;
             margin: 0.5rem 0;
-            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            background: linear-gradient(90deg, #00bfff, #0000ff);
             color: white;
             text-transform: uppercase;
             text-decoration: none;
             border-radius: 25px;
-            transition: background 0.3s ease, transform 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
+        .button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5rem;
+        }
+
         .button:hover {
-            background: linear-gradient(90deg, #0072ff, #00c6ff);
+            background: linear-gradient(90deg, #0000ff, #00bfff);
             transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
         }
 
         footer {
-            background-color: #212121;
+            background-color: #111;
             color: white;
             text-align: center;
             padding: 1rem 0;
             position: relative;
             bottom: 0;
             width: 100%;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive design */
@@ -115,42 +151,63 @@
 <body>
 
 <header>
-    <h1>Welcome to My Futuristic Website</h1>
+    <h1>Izumi-v3 - Multi-device WhatsApp Bot</h1>
 </header>
 
 <nav>
     <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
+    <a href="#features">Features</a>
+    <a href="#deployment">Deployment</a>
     <a href="#contact">Contact</a>
 </nav>
 
 <div class="container" id="home">
-    <h2>Home</h2>
-    <p>This is the home page content. Welcome to my futuristic website. Here, you'll find all the information you need about what we offer and who we are.</p>
-    <a href="#about" class="button">Learn More</a>
+    <h2>Welcome to Izumi-v3</h2>
+    <p>Izumi-v3 is a powerful and versatile multi-device WhatsApp bot designed to enhance your WhatsApp experience. Easily deployable on Heroku, Railway, Render, Replit, and Codespaces.</p>
+    <a href="https://chat.whatsapp.com/KHvcGD7aEUo8gPocJsYXZe" class="button"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Izumi Support</a>
 </div>
 
-<div class="container" id="about">
-    <h2>About</h2>
-    <p>This is the about page content. Learn more about our mission, vision, and the team behind this amazing project. We are dedicated to providing the best service possible.</p>
-    <a href="#services" class="button">Our Services</a>
+<div class="container" id="features">
+    <h2>Features</h2>
+    <p>Izumi-v3 offers a range of features to make your WhatsApp interactions more efficient and enjoyable:</p>
+    <ul>
+        <li>Multi-device support</li>
+        <li>Automated messaging</li>
+        <li>Customizable commands</li>
+        <li>24/7 uptime</li>
+        <li>User-friendly interface</li>
+    </ul>
+    <a href="https://youtube.com/@appuvfxvlog?si=OBtKWEeCAVNLSo4t" class="button"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"> How to Deploy</a>
 </div>
 
-<div class="container" id="services">
-    <h2>Services</h2>
-    <p>This is the services page content. Discover the wide range of services we offer to meet your needs. From consulting to implementation, we've got you covered.</p>
-    <a href="#contact" class="button">Get in Touch</a>
+<div class="container" id="deployment">
+    <h2>Deployment</h2>
+    <p>Deploy Izumi-v3 effortlessly on your preferred platform:</p>
+    <ul>
+        <li><strong>Heroku:</strong> Simple and quick deployment.</li>
+        <li><strong>Railway:</strong> Reliable and scalable solution.</li>
+        <li><strong>Render:</strong> Fast and easy setup.</li>
+        <li><strong>Replit:</strong> Ideal for development and testing.</li>
+        <li><strong>Codespaces:</strong> Perfect for GitHub integration.</li>
+    </ul>
+    <a href="https://github.com/sataniceypz/Izumi-v3" class="button"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"> Repo</a>
 </div>
 
 <div class="container" id="contact">
     <h2>Contact</h2>
-    <p>This is the contact page content. Get in touch with us for any inquiries or support. We are here to help you.</p>
+    <p>Have any questions or need support? Get in touch with us:</p>
+    <p>Email: support@izumi-v3.com</p>
+    <p>Twitter: @IzumiV3</p>
+    <div class="social-icons">
+        <a href="https://chat.whatsapp.com/KHvcGD7aEUo8gPocJsYXZe"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
+        <a href="https://github.com/sataniceypz/Izumi-v3"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"></a>
+        <a href="https://youtube.com/@appuvfxvlog?si=OBtKWEeCAVNLSo4t"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
+    </div>
     <a href="#home" class="button">Back to Home</a>
 </div>
 
 <footer>
-    <p>&copy; Izumi Web</p>
+    <p>&copy; 2024 Izumi-v3. All rights reserved.</p>
 </footer>
 
 </body>
