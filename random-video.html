@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Video Player</title>
+</head>
+<body>
+    <h1>Random Video Player</h1>
+    <video id="videoPlayer" controls autoplay>
+        <!-- Video source will be dynamically set -->
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        // List of video URLs (replace with your own URLs)
+        const videoUrls = [
+            'izumi-web.vercel.app/video/1.mp4',
+            'izumi-web.vercel.app/video/1.mp4'',
+            'izumi-web.vercel.app/video/1.mp4''
+            // Add more video URLs as needed
+        ];
+
+        // Function to pick a random video URL
+        function getRandomVideoUrl() {
+            const randomIndex = Math.floor(Math.random() * videoUrls.length);
+            return videoUrls[randomIndex];
+        }
+
+        // Function to update video source on page load and refresh
+        function reloadVideoSource() {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const randomVideoUrl = getRandomVideoUrl();
+            videoPlayer.src = randomVideoUrl;
+            videoPlayer.load(); // Load the new video source
+        }
+
+        // Load a random video when the page is first loaded
+        window.onload = function() {
+            reloadVideoSource();
+        };
+
+        // Reload a new random video when the current one ends
+        document.getElementById('videoPlayer').addEventListener('ended', function() {
+            reloadVideoSource();
+        });
+    </script>
+</body>
+</html>
