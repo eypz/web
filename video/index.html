@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Video Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #video-container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        video {
+            width: 100%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video controls autoplay>
+            <!-- Initial video source (this will change via JavaScript) -->
+            <source src="https://izumi-web.vercel.app/video/1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        // Array of video URLs
+        const videoUrls = [
+            'https://izumi-web.vercel.app/video/1.mp4',
+            'https://i.imgur.com/H4gvcFb.mp4'
+        ];
+
+        // Function to randomly select a video URL
+        function getRandomVideoUrl() {
+            const randomIndex = Math.floor(Math.random() * videoUrls.length);
+            return videoUrls[randomIndex];
+        }
+
+        // Function to set a random video source on page load
+        function setRandomVideoSource() {
+            const videoElement = document.querySelector('video');
+            const randomVideoUrl = getRandomVideoUrl();
+            videoElement.src = randomVideoUrl;
+        }
+
+        // Call the function on page load
+        setRandomVideoSource();
+    </script>
+</body>
+</html>
