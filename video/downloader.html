@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Hosting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>Custom Video Hosting</h2>
+    <p>Paste your video URL below:</p>
+    <input type="text" id="videoUrl" placeholder="Enter video URL">
+    <button onclick="loadVideo()">Load Video</button>
+    
+    <div id="videoPlayer">
+        <!-- Video will appear here -->
+    </div>
+    
+    <script>
+        function loadVideo() {
+            var videoUrl = document.getElementById('videoUrl').value;
+            if (videoUrl) {
+                // Clear previous video if any
+                var videoPlayer = document.getElementById('videoPlayer');
+                videoPlayer.innerHTML = '';
+                
+                // Create video element
+                var video = document.createElement('video');
+                video.controls = true;
+                video.autoplay = true;
+                
+                // Create source element
+                var source = document.createElement('source');
+                source.src = videoUrl;
+                source.type = 'video/mp4'; // Update this according to video type (mp4, webm, etc.)
+                
+                // Append source to video element
+                video.appendChild(source);
+                
+                // Append video to videoPlayer div
+                videoPlayer.appendChild(video);
+            } else {
+                alert('Please enter a video URL.');
+            }
+        }
+    </script>
+</body>
+</html>
