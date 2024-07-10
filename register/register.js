@@ -1,53 +1,42 @@
 // register.js
 
-// Import necessary libraries
 const nodemailer = require('nodemailer');
 
-// Function to generate random password
-function generateRandomPassword() {
-    const length = 8;
-    const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let password = '';
-    for (let i = 0; i < length; i++) {
-        password += charset.charAt(Math.floor(Math.random() * charset.length));
-    }
-    return password;
-}
-
-// Handler function for the serverless function
 async function handler(req, res) {
     if (req.method === 'POST') {
         const { email, username } = req.body;
-        const password = generateRandomPassword();
+        const password = generateRandomPassword(); // Assuming this function is defined elsewhere
 
-        // Send email with the generated password
-        const transporter = nodemailer.createTransport({
-            // Configure your email transport here (e.g., SMTP settings)
-            host: 'smtp.example.com',
+        // Nodemailer setup (example, replace with your SMTP configuration)
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.example.com', // Replace with your SMTP server
             port: 587,
-            secure: false,
+            secure: false, // Upgrade later with STARTTLS
             auth: {
-                user: 'your-email@example.com',
-                pass: 'your-email-password'
+                user: 'your-email@example.com', // Replace with your email address
+                pass: 'your-email-password' // Replace with your email password
             }
         });
 
-        const mailOptions = {
-            from: 'sataniceypz@gamil.com',
+        // Email content
+        let mailOptions = {
+            from: 'your-email@example.com',
             to: email,
             subject: 'Your New Password',
             text: `Hey ${username},\n\nHere is your password: ${password}`
         };
 
         try {
-            await transporter.sendMail(mailOptions);
-            res.status(200).send('Email sent successfully!');
+            // Send email
+            let info = await transporter.sendMail(mailOptions);
+            console.log('Email sent: ' + info.response);
+            res.status(200).json({ message: 'Email sent successfully!' });
         } catch (error) {
             console.error('Error sending email:', error);
-            res.status(500).send('Failed to send email.');
+            res.status(500).json({ error: 'Failed to send email.' });
         }
     } else {
-        res.status(405).send('Method Not Allowed');
+        res.status(405).json({ error: 'Method Not Allowed' });
     }
 }
 
