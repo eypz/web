@@ -3,24 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected Redirect</title>
+    <title>User Registration and Password Email</title>
     <script>
-        function checkPassword() {
-            var password = document.getElementById("password").value;
-            if (password === "eypzgod") {
-                window.location.href = "https://api-eypz.onrender.com/anime";
-            } else {
-                alert("Incorrect password. Please try again.");
+        function generateRandomPassword() {
+            var length = 8; // Length of the random password
+            var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var password = "";
+            for (var i = 0; i < length; i++) {
+                password += charset.charAt(Math.floor(Math.random() * charset.length));
             }
-            return false; // Prevent form submission
+            document.getElementById("password").value = password; // Set generated password to input field
+        }
+
+        function copyPassword() {
+            var passwordField = document.getElementById("password");
+            passwordField.select();
+            document.execCommand("copy");
+            alert("Password copied to clipboard!");
         }
     </script>
 </head>
 <body>
-    <p>Click here to enter password:</p>
-    <form onsubmit="return checkPassword()">
-        <input type="password" id="password" placeholder="Enter password">
-        <button type="submit">Submit</button>
+    <h2>User Registration</h2>
+    <form action="register.php" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" readonly><br><br>
+
+        <button type="button" onclick="generateRandomPassword()">Generate Random Password</button>
+        <button type="button" onclick="copyPassword()">Copy Password</button><br><br>
+
+        <button type="submit">Register</button>
     </form>
 </body>
 </html>
