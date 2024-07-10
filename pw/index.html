@@ -47,7 +47,7 @@
             var validPasswords = ["eypzgod", "izumi", "izumieypz", "eypzakshay"]; // Array of valid passwords
             
             if (validPasswords.includes(password)) {
-                window.location.href = "https://api-eypz.onrender.com/anime"; // Redirect to URL
+                window.location.href = "https://api-eypz.onrender.com"; // Redirect to URL
             } else {
                 alert("Incorrect password. Please try again."); // Alert for incorrect password
             }
@@ -58,7 +58,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="https://api-eypz.onrender.com/" alt="Image" style="width: 100%; max-width: 300px; display: block; margin: 0 auto 20px;">
+        <img src="https://api-eypz.onrender.com/image" alt="Image" style="width: 100%; max-width: 300px; display: block; margin: 0 auto 20px;">
         <p>Enter the password to access:</p>
         <form onsubmit="return checkPassword()">
             <input type="password" id="password" placeholder="Enter password" required>
