@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Redirect</title>
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "eypzgod") {
+                window.location.href = "https://api-eypz.onrender.com/anime";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+            return false; // Prevent form submission
+        }
+    </script>
+</head>
+<body>
+    <p>Click here to enter password:</p>
+    <form onsubmit="return checkPassword()">
+        <input type="password" id="password" placeholder="Enter password">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
