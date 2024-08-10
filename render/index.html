@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Instructions</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Deployment Instructions">
+    <meta property="og:description" content="Step-by-step instructions to deploy your project using Render.">
+    <meta property="og:image" content="https://ik.imagekit.io/eypz/1723284441111_c9I1l1PaY.png"> <!-- Replace with your image URL -->
+    <meta property="og:url" content="https://izumi-web.vercel.app/render"> <!-- Replace with your webpage URL -->
+    <meta property="og:type" content="website">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .link-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .link-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Deployment Instructions</h1>
+        <ol>
+            <li>Fork this repo <a class="link-button" href="https://github.com/sataniceypz/izumi-render/fork" target="_blank">Click Here</a></li>
+            <li>On Render dashboard, click <strong>New</strong> and choose <strong>Web Service</strong>.</li>
+            <li>Choose <strong>Public Repository</strong>, then paste the forked repository URL.</li>
+            <li>Add <strong>DATABASE_URL</strong>, <strong>RENDER_API_KEY</strong>, <strong>RENDER_NAME</strong>, <strong>SESSION_ID</strong>, <strong>PORT</strong>, and other required environment variables.</li>
+        </ol>
+    </div>
+</body>
+</html>
