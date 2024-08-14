@@ -1,0 +1,10 @@
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "A simple Node.js project",
+  "scripts": {
+    "start": "echo 'No start script defined'"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
