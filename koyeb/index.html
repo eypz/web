@@ -1,42 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<meta charset="UTF-8" />
-<title>Izumi Koyeb Deployer</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Izumi Koyeb Deployer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1f1f1f;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
+        .container {
+            text-align: center;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #00d4ff;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #b5b5b5;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        .input-container input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .deploy-button,
+        .signup-button,
+        .apikey-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            background-color: #00d4ff;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .deploy-button:hover,
+        .signup-button:hover,
+        .apikey-button:hover {
+            background-color: #009ec3;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
-<body onload="showTextBox()">
+<body>
+    <div class="container">
+        <h1>Izumi Koyeb Deployer</h1>
+        <p>Please enter your GitHub username to start deploying.</p>
+        <div class="input-container">
+            <input type="text" id="username" placeholder="GitHub Username">
+        </div>
+        <button class="deploy-button" onclick="verify()">Deploy Now</button>
+        <div class="button-container">
+            <button class="signup-button" onclick="location.href='https://app.koyeb.com/auth/signup'">Sign Up</button>
+            <button class="apikey-button" onclick="location.href='https://app.koyeb.com/account/api'">Get API Key</button>
+        </div>
+    </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 
-<script type="text/javascript">
-
-function showTextBox(){
-  let username = prompt("Enter your github username")
-  while(!username){
-    username = prompt("Enter your github username")
-  }
-  verify(username)
-}
-
-async function verify(username) {
-  try {
-    const { data } = await axios(`https://api.github.com/users/${username}`)
-    try {
-      const repo = await axios(`https://api.github.com/repos/${username}/Izumi-v3`)
-    } catch (e) {
-      alert("You haven't forked the repo, please visit this page after forking\nClick the 'OK' button to fork")
-      return location.replace('https://github.com/sataniceypz/Izumi-v3/fork')
-    }
-    location.replace(`https://app.koyeb.com/services/deploy/?type=git&repository=https%3A%2F%2Fgithub.com%2F${username}%2FIzumi-v3&branch=main&name=Izumi-v3&builder=dockerfile&args=npm&args=start&ports=8000%3Bhttp%3B%2F&env%5BSESSION_ID%5D=your_session&env%5BMENU_URL%5D=https%3A%2F%2Fizumi-web.vercel.app%2Fimage%2Fizumi.png&env%5BOWNER_NAME%5D=Eypz&env%5BCAPTION%5D=Izumi&env%5BBOT_NAME%5D=Izumi&env%5BAUDIO_DATA%5D=E%CA%8Fy%E1%B4%8F%CA%99%3BI%E1%B4%8A%E1%B5%8A%E1%B4%9C%E1%B4%8D%C9%AA-%E1%B4%A0%3Bhttps%3A%2F%2Fizumi-web.vercel.app%2Fimage%2Fizumi.png&env%5BSTICKER_PACKNAME%5D=Izumi%3B%E2%9D%A4%EF%B8%8F&env%5BSUDO%5D=917994489493&env%5BPREFIX%5D=`)
-  } catch (error) {
-    alert("Username invalid!")
-  }
-}
-
-</script>
-
+    <script type="text/javascript">
+        async function verify() {
+            let username = document.getElementById("username").value;
+            if (!username) {
+                alert("Please enter your GitHub username!");
+                return;
+            }
+            try {
+                const { data } = await axios(`https://api.github.com/users/${username}`);
+                try {
+                    const repo = await axios(`https://api.github.com/repos/${username}/Izumi-v3`);
+                } catch (e) {
+                    alert("You haven't forked the repo. Please fork it first, and try again.");
+                    return location.replace('https://github.com/sataniceypz/Izumi-v3/fork');
+                }
+                location.replace(`https://app.koyeb.com/services/deploy/?type=git&repository=https%3A%2F%2Fgithub.com%2F${username}%2FIzumi-v3&branch=main&name=Izumi-v3&builder=dockerfile&args=npm&args=start&ports=8000%3Bhttp%3B%2F&env%5BSESSION_ID%5D=your_session&env%5BMENU_URL%5D=https%3A%2F%2Fizumi-web.vercel.app%2Fimage%2Fizumi.png&env%5BOWNER_NAME%5D=Eypz&env%5BCAPTION%5D=Izumi&env%5BBOT_NAME%5D=Izumi&env%5BAUDIO_DATA%5D=E%CA%8Fy%E1%B4%8F%CA%99%3BI%E1%B4%8A%E1%B5%8D%E1%B4%9C%E1%B4%8D%C9%AA-%E1%B4%A0%3Bhttps%3A%2F%2Fizumi-web.vercel.app%2Fimage%2Fizumi.png&env%5BSTICKER_PACKNAME%5D=Izumi%3B%E2%9D%A4%EF%B8%8F&env%5BSUDO%5D=917994489493&env%5BPREFIX%5D=.&env%5BKOYEB_API_KEY%5D=your_api_key_here&env%5BKOYEB_APP_NAME%5D=izumi-v3`);
+            } catch (error) {
+                alert("Invalid GitHub username!");
+            }
+        }
+    </script>
 </body>
 
 </html>
