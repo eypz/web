@@ -1,1 +1,11 @@
-Hey I'm Alive
+{
+  "result": {
+    "thumbnail": "https://ik.imagekit.io/eypz/1725384097289_XAM-9q-Cs.png",
+    "name": "Eʏᴘᴢ Gᴏᴅ",
+    "name2": "Iᴢᴜᴍɪ",
+    "about": "Eypz God is the creator of the Izumi WhatsApp Bot, known for developing innovative automation solutions to enhance user experiences.",
+    "sourceurl": "https://github.com/sataniceypz",
+    "sourceUrl2": "https://github.com/sataniceypz",
+   "media": "https://telegra.ph/file/8a0d1c19090518fa9aaae.mp4"
+  }
+}
